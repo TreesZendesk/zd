@@ -1,0 +1,13 @@
+{
+  "name": "Line Channel",
+  "author": {
+    "name": "Zendesk Presales - APAC",
+    "email": "jignacio@zendesk.com",
+    "url": "https://www.zendesk.com/"
+  },
+  "defaultLocale": "en",
+  "private": false,
+  "version": "1.0",
+  "singleInstall": true,
+  "requirementsOnly": true
+}
