@@ -1,0 +1,19 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  external_id: MyString
+  message: MyText
+  thread_id: 1
+  created_at: 2016-10-07 10:26:59
+  line_timestamp: MyString
+  author_id: 1
+  allow_channelback: false
+
+two:
+  external_id: MyString
+  message: MyText
+  thread_id: 1
+  created_at: 2016-10-07 10:26:59
+  line_timestamp: MyString
+  author_id: 1
+  allow_channelback: false

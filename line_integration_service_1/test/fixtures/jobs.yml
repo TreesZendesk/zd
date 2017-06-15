@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  channel_id: MyString
+  external_resource_id: 1
+  status: MyString
+  zendesk_status: MyString
+  channel_uid: MyString
+
+two:
+  channel_id: MyString
+  external_resource_id: 1
+  status: MyString
+  zendesk_status: MyString
+  channel_uid: MyString

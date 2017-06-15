@@ -1,0 +1,13 @@
+{
+  "name": "Line Channel",
+  "id": "zendesk-internal-line-integration",
+  "author":  "Zendesk Presales APAC",
+  "version": "v1.0.0",
+  "push_client_id": "line_zd_integ",
+  "urls": {
+    "admin_ui": "https://zendev-presales.herokuapp.com/integration/line/admin",
+    "pull_url": "https://zendev-presales.herokuapp.com/integration/line/pull",
+    "channelback_url": "https://zendev-presales.herokuapp.com/integration/line/channelback",
+    "clickthrough_url": "https://zendev-presales.herokuapp.com/integration/line/clickthrough"
+  }
+}

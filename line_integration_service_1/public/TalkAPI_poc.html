@@ -1,0 +1,85 @@
+<html>
+<head>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+  <script>
+
+  var agentID   = 17812781968;
+  var endUserID = 18139683568;
+
+  function displayUserProfile() {
+    // For reference, go to this link https://developer.zendesk.com/rest_api/docs/voice-api/talk_partner_edition#open-a-users-profile-in-an-agents-browser
+    $.ajax({
+      url: "https://intelixgc.zendesk.com/api/v2/channels/voice/agents/"+agentID+"/users/"+endUserID+"/display.json",
+      type: 'POST',
+      dataType: 'json',
+      beforeSend: function (xhr) {
+        // {email}:{password}
+        xhr.setRequestHeader ("Authorization", "Basic " + btoa("jirat+intelix@zendesk.com:123456"));
+      }
+    });
+  }
+
+  function createVoiceTicket() {
+    // For reference, go to this link https://developer.zendesk.com/rest_api/docs/voice-api/talk_partner_edition#creating-tickets
+    $.ajax({
+      url: "https://intelixgc.zendesk.com/api/v2/channels/voice/tickets.json",
+      type: 'POST',
+      dataType: 'json',
+      data: {
+        "display_to_agent": agentID,
+        "ticket": {
+          "via_id": 45,
+          "subject": "My printer is on fire! (Ticket created using Talk API)",
+          "comment": { "body": "The smoke is very colorful." },
+          "priority": "urgent",
+          "requester_id": endUserID
+        }
+      },
+
+      beforeSend: function (xhr) {
+        // {email}:{password}
+        xhr.setRequestHeader ("Authorization", "Basic " + btoa("jirat+intelix@zendesk.com:123456"));
+      }
+    });
+  }
+
+  function searchAndSetEndUser() {
+    // For reference, go to this link https://developer.zendesk.com/rest_api/docs/core/search#search
+    var queryString = "role:end-user phone:123456789";
+    $.ajax({
+      url: "https://intelixgc.zendesk.com/api/v2/search.json?query="+queryString,
+      type: 'GET',
+      dataType: 'json',
+      beforeSend: function (xhr) {
+        // {email}:{password}
+        xhr.setRequestHeader ("Authorization", "Basic " + btoa("jirat+intelix@zendesk.com:123456"));
+      }
+    }).always(function(data) {
+        // set user id with the given result of Search API
+        if(data.results) {
+          endUserID = data.results[0].id;
+        }
+    });
+  }
+
+  $(document).ready(function() {
+    $("#cti-btn").click(function() {
+      // Display End-user profile to agent
+      displayUserProfile();
+
+      // Create voice ticket and display it to agent
+      createVoiceTicket();
+    });
+
+    // Search End-user via phone number
+    searchAndSetEndUser();
+  });
+  </script>
+</head>
+<body>
+  <p>Agent: <b>Jirat - ID: 17812781968</b></p>
+  <p>End-user: <b>Jirat Boomuang - ID: 18139683568</b></p>
+  <br/>
+  <button id="cti-btn">Display User and Create Ticket</button>
+</body>
+</html>
