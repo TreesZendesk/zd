@@ -1,1 +1,1 @@
-web: node line_channel_app/index.js
+web: node index.js
