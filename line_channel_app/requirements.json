@@ -1,7 +1,7 @@
 {
   "channel_integrations": {
     "zendesk-internal-line-integration": {
-      "manifest_url": "https://line4zd.herokuapp.com/manifest.json"
+      "manifest_url": "https://zendev-presales.herokuapp.com/manifest.json"
     }
   }
 }
